@@ -1,0 +1,49 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    ports:
+      - "8081:8081"
+
+
+
+    networks:
+      - s-network
+
+
+  mysql:
+    image: mysql:latest
+    environment:
+
+      MYSQL_ROOT_PASSWORD: pass123
+
+      MYSQL_DATABASE: stu
+
+      MYSQL_USER: soham
+
+      MYSQL_PASSWORD: "123"
+
+
+
+    ports:
+      - 3307:3306
+    networks:
+      - s-network
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6380:6379"
+
+    networks:
+      - s-network
+
+
+
+
+
+networks:
+  s-network:
+    driver: bridge
+
