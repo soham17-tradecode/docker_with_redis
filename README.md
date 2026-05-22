@@ -1,7 +1,7 @@
 # Docker - (Baisc)Spring Boot + MySQL + Redis + Docker Project
 
 ````markdown
-# 🚀 Dickkrt - Spring Boot Redis Demo Project
+# 🚀 Docker - (basic)Spring Boot Redis Demo Project
 
 A beginner-friendly Spring Boot project demonstrating:
 
