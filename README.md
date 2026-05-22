@@ -1,38 +1,39 @@
-# Docker - (Baisc)Spring Boot + MySQL + Redis + Docker Project
+# 🚀 Docker - Spring Boot + Redis + MySQL + Docker
 
-````markdown
-# 🚀 Docker - (basic)Spring Boot Redis Demo Project
+A beginner-friendly backend project built using **Spring Boot**, demonstrating:
 
-A beginner-friendly Spring Boot project demonstrating:
+* REST APIs
+* MySQL database integration
+* Redis caching
+* Docker & Docker Compose
+* Spring Data JPA
 
-- REST APIs
-- MySQL Integration
-- Redis Caching
-- Docker & Docker Compose
-- Spring Data JPA
+This project is useful for learning how modern backend systems use caching and containers for performance and scalability.
 
 ---
 
 # 📌 Features
 
-✅ Save student data into MySQL  
-✅ Fetch student data using REST API  
-✅ Redis cache integration  
-✅ Dockerized application  
-✅ Simple Spring Boot architecture  
-✅ Beginner-friendly project structure
+✅ CRUD-style REST APIs
+✅ MySQL database connectivity
+✅ Redis cache integration
+✅ Dockerized Spring Boot application
+✅ Docker Compose setup
+✅ Simple project structure for beginners
 
 ---
 
 # 🛠️ Tech Stack
 
-- Java
-- Spring Boot
-- Spring Data JPA
-- MySQL
-- Redis
-- Docker
-- Docker Compose
+| Technology      | Purpose               |
+| --------------- | --------------------- |
+| Java            | Programming Language  |
+| Spring Boot     | Backend Framework     |
+| Spring Data JPA | Database ORM          |
+| MySQL           | Relational Database   |
+| Redis           | In-memory Cache       |
+| Docker          | Containerization      |
+| Docker Compose  | Multi-container setup |
 
 ---
 
@@ -60,7 +61,7 @@ src/main/java/com/example/dickkrt
 │   └── redisService.java
 │
 └── DickkrtApplication.java
-````
+```
 
 ---
 
@@ -119,12 +120,12 @@ services:
 
 ---
 
-# ▶️ Running the Project
+# ▶️ How To Run
 
 ## 1️⃣ Clone Repository
 
 ```bash
-git clone <your-github-repo-link>
+git clone https://github.com/your-username/dickkrt.git
 ```
 
 ---
@@ -137,7 +138,7 @@ mvn clean install
 
 ---
 
-## 3️⃣ Run with Docker Compose
+## 3️⃣ Run Using Docker Compose
 
 ```bash
 docker-compose up --build
@@ -149,11 +150,11 @@ docker-compose up --build
 
 ---
 
-## Home API
+## 🏠 Home API
 
 ### GET /
 
-```bash
+```http
 http://localhost:8081/
 ```
 
@@ -165,11 +166,11 @@ hello
 
 ---
 
-## Save Student
+## 💾 Save Student
 
 ### POST /save
 
-```bash
+```http
 http://localhost:8081/save
 ```
 
@@ -184,51 +185,61 @@ http://localhost:8081/save
 
 ---
 
-## Get All Students
+## 📋 Get All Students
 
 ### GET /gets
 
-```bash
+```http
 http://localhost:8081/gets
 ```
 
 ---
 
-## Get Student Using Redis Cache
+## ⚡ Redis Cache API
 
 ### GET /get/{id}
 
 Example:
 
-```bash
+```http
 http://localhost:8081/get/1
 ```
 
-### Redis Flow
+---
 
-1. API checks Redis cache
-2. If data exists → return from Redis
-3. Else fetch from MySQL
-4. Save into Redis
-5. Return response
+# 🧠 Redis Cache Flow
+
+```text
+Client Request
+      ↓
+Check Redis Cache
+      ↓
+Cache Hit? ---- YES ---> Return Data
+      ↓ NO
+Fetch From MySQL
+      ↓
+Store In Redis
+      ↓
+Return Response
+```
 
 ---
 
-# 🧠 Redis Caching Logic
+# 🧩 Redis Caching Logic
 
 ```java
 Object cached = template.opsForValue().get(key);
 
-if (cached!=null)
+if (cached != null)
 {
     return (Model) cached;
 }
 
 Model model = stuRepo.findById(id).orElse(null);
 
-if (model!=null)
+if (model != null)
 {
-    template.opsForValue().set(key,model);
+    template.opsForValue().set(key, model);
 }
 ```
 
@@ -252,34 +263,26 @@ st
 
 ---
 
-# 📷 Example Workflow
+# 📚 What You Will Learn
 
-```text
-POST /save  → Data stored in MySQL
-
-GET /get/1
-    ↓
-Check Redis
-    ↓
-If absent → Fetch MySQL
-    ↓
-Store in Redis
-    ↓
-Return Data
-```
+* Spring Boot REST APIs
+* Redis caching concepts
+* Docker containerization
+* Docker Compose networking
+* MySQL integration
+* Backend architecture basics
 
 ---
 
-# 🎯 Learning Outcomes
+# 🚀 Future Improvements
 
-This project helps beginners understand:
-
-* Spring Boot REST APIs
-* Dockerizing Java applications
-* Redis caching concepts
-* MySQL integration
-* Docker Compose networking
-* Backend project structure
+* JWT Authentication
+* Spring Security
+* File Upload System
+* Redis TTL Expiry
+* Kubernetes Deployment
+* Microservices Architecture
+* API Gateway
 
 ---
 
@@ -289,28 +292,6 @@ Soham Basak
 
 ---
 
-# ⭐ Future Improvements
+# ⭐ License
 
-* JWT Authentication
-* File Upload System
-* Spring Security
-* Redis TTL Expiry
-* Kubernetes Deployment
-* API Gateway
-* Microservices Architecture
-
----
-
-# 📜 License
-
-This project is for learning purposes.
-
-```
-
-Project uses:
-- Spring Boot application setup :contentReference[oaicite:0]{index=0}
-- Redis configuration :contentReference[oaicite:1]{index=1}
-- Redis caching service :contentReference[oaicite:2]{index=2}
-- Student APIs :contentReference[oaicite:3]{index=3}
-- MySQL & Redis properties :contentReference[oaicite:4]{index=4}
-```
+This project is created for learning and educational purposes.
