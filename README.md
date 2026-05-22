@@ -1,4 +1,4 @@
-# Dickkrt - Spring Boot + MySQL + Redis + Docker Project
+# Docker - (Baisc)Spring Boot + MySQL + Redis + Docker Project
 
 ````markdown
 # 🚀 Dickkrt - Spring Boot Redis Demo Project
