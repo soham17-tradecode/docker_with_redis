@@ -70,7 +70,7 @@ src/main/java/com/example/dickkrt
 ```properties
 spring.datasource.url=jdbc:mysql://mysql:3306/stu
 spring.datasource.username=soham
-spring.datasource.password=123
+spring.datasource.password=
 
 spring.data.redis.host=redis
 spring.data.redis.port=6379
